@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">Mi Primer Aplicación</string>
+
+    <string name="saludo">Hola Mundo!</string>
+
+    <!-- Esto es un comentario -->
+
+</resources>
