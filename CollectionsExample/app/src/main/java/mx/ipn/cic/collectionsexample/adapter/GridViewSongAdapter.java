@@ -1,10 +1,10 @@
 package mx.ipn.cic.collectionsexample.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -16,28 +16,14 @@ import mx.ipn.cic.collectionsexample.model.Song;
  * Created by jmperezsantos on 11/18/17.
  */
 
-public class ListViewSongAdapter extends BaseAdapter {
+public class GridViewSongAdapter extends BaseAdapter {
 
     private List<Song> canciones;
 
-    private ListViewAdapterUpdateListener updateListener;
-
-    public ListViewSongAdapter(List<Song> canciones) {
+    public GridViewSongAdapter(List<Song> canciones) {
 
         this.canciones = canciones;
 
-    }
-
-    public void addSongs(List<Song> moreSongs) {
-
-        this.canciones.addAll(moreSongs);
-
-        this.notifyDataSetChanged();
-
-    }
-
-    public void setUpdateListener(ListViewAdapterUpdateListener updateListener) {
-        this.updateListener = updateListener;
     }
 
     @Override
@@ -66,19 +52,11 @@ public class ListViewSongAdapter extends BaseAdapter {
                         View reusableView,
                         ViewGroup parent) {
 
-        if (position == this.getCount() - 1
-                && this.updateListener != null) {
-
-            Log.i("TAG", "Position: " + position);
-            this.updateListener.onUpdateCall(this, this.getCount());
-
-        }
-
         if (reusableView == null) {
 
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
-            reusableView = inflater.inflate(R.layout.song_item_layout,
+            reusableView = inflater.inflate(R.layout.picture_item_layout,
                     parent,
                     false);
 
@@ -93,6 +71,22 @@ public class ListViewSongAdapter extends BaseAdapter {
         tvTitle.setText(song.getTitle());
 
         tvArtist.setText(song.getArtist());
+
+        ImageView ivDisc = reusableView.findViewById(R.id.ivDisc);
+
+        if (position % 3 == 0) {
+
+            ivDisc.setImageResource(R.drawable.cast1);
+
+        } else if (position % 2 == 0) {
+
+            ivDisc.setImageResource(R.drawable.cast2);
+
+        } else {
+
+            ivDisc.setImageResource(R.drawable.play);
+
+        }
 
         return reusableView;
 
