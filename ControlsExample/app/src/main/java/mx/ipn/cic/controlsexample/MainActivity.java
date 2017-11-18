@@ -10,6 +10,8 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Switch;
 
+import java.util.Scanner;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -40,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
                 if (fromUser) {
                     pbProgress.setProgress(progress);
+                }
+
+                if (seekBar.getProgress() < 300) {
+                    seekBar.setProgress(300);
+                }
+
+                if (seekBar.getProgress() > 900) {
+                    seekBar.setProgress(900);
                 }
 
                 Log.i("TAG", "Se movió el Slider Progress: " + seekBar.getProgress());
@@ -87,7 +97,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 }
