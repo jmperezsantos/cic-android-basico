@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import mx.ipn.cic.fragmentsexample.R;
 
@@ -29,7 +30,6 @@ public class BlankFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
-
 
         return view;
     }
@@ -54,6 +54,10 @@ public class BlankFragment extends Fragment {
                 transaction.addToBackStack(null);
 
                 transaction.commit();
+
+                Toast.makeText(getContext(),
+                        "TOAST!!!",
+                        Toast.LENGTH_LONG).show();
 
             }
         });
