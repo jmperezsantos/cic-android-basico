@@ -72,7 +72,7 @@ public class GridViewSongAdapter extends BaseAdapter {
 
         tvArtist.setText(song.getArtist());
 
-        ImageView ivDisc = reusableView.findViewById(R.id.ivDisc);
+        ImageView ivDisc = reusableView.findViewById(R.id.ivPlay);
 
         if (position % 3 == 0) {
 

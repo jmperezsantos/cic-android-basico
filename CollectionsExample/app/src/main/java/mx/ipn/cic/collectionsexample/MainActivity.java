@@ -2,7 +2,11 @@ package mx.ipn.cic.collectionsexample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +43,23 @@ public class MainActivity extends AppCompatActivity {
 
         lvCanciones.setAdapter(adapter);
 
+        lvCanciones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Adapter adapter1 = parent.getAdapter();
+
+                Song song = (Song)adapter1.getItem(position);
+
+                String mensaje = getString(R.string.my_super_string) + ": " + song.getDisquera();
+
+                Toast.makeText(MainActivity.this,
+                        mensaje,
+                        Toast.LENGTH_LONG).show();
+
+            }
+        });
+
     }
 
     private List<Song> generateMoreSongs(int maxCount) {
@@ -50,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
         for (int i = maxCount + 1; i <= limit; i++) {
 
             Song song = new Song("Title " + i, "Artist " + i);
+
+            song.setDisquera("Disquera " + i*i);
 
             canciones.add(song);
 
@@ -66,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 1; i <= count; i++) {
 
             Song song = new Song("Title " + i, "Artist " + i);
+
+            song.setDisquera("Disquera " + i*i);
 
             canciones.add(song);
 

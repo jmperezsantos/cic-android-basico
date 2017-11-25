@@ -10,6 +10,8 @@ public class Song {
 
     private String artist;
 
+    private String disquera;
+
     public String getTitle() {
         return this.title;
     }
@@ -24,6 +26,14 @@ public class Song {
 
     public void setArtist(String artist) {
         this.artist = artist;
+    }
+
+    public String getDisquera() {
+        return this.disquera;
+    }
+
+    public void setDisquera(String disquera) {
+        this.disquera = disquera;
     }
 
     public Song(String title, String artist) {
