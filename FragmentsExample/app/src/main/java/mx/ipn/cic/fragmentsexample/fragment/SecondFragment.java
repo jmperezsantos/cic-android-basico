@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,13 +40,32 @@ public class SecondFragment extends Fragment implements View.OnClickListener{
 
         btnAtras.setOnClickListener(this);
 
+        Button btnAvanzar = view.findViewById(R.id.irAl3);
+
+        btnAvanzar.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
 
         FragmentManager manager = this.getFragmentManager();
-        manager.popBackStack();
+
+        if(v.getId() == R.id.irAtras) {
+
+            manager.popBackStack();
+
+        } else if(v.getId() == R.id.irAl3){
+
+            Fragment fragment = ThirdFragment.newInstance();
+
+            FragmentTransaction transaction = manager.beginTransaction();
+
+            transaction.replace(R.id.container, fragment);
+
+            transaction.commit();
+
+        }
 
     }
 }

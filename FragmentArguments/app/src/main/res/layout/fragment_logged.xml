@@ -2,22 +2,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    tools:context="mx.ipn.cic.fragmentsexample.fragment.BlankFragment">
+    tools:context="mx.ipn.cic.fragmentarguments.fragments.LoggedFragment">
 
-    <Button
-        android:id="@+id/btnAvanza"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Ir a Fragment 2" />
-
+    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Welcome"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Hola Mundo desde Fragment"
-        android:textSize="20sp" />
+        android:text="(USER)"
+        android:textSize="30sp" />
 
 </RelativeLayout>
